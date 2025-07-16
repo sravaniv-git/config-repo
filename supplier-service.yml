@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: supplier-service
+  config:
+    import: "optional:configserver:"
+    cloud:
+      config:
+        discovery:
+          enabled: true
+          service-id: config-server
+server:
+  port: 9095
+logging:
+  level:
+    root: INFO
+    com.capstone.matchxapp: DEBUG
+  file.name: application.log

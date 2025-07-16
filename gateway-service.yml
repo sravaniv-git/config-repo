@@ -1,0 +1,40 @@
+server:
+  port: 8764
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: product
+          uri: lb://product-service
+          predicates:
+            - Path=/matchxapp/api/products/**
+          filters:
+            - StripPrefix=2
+        - id: supplier
+          uri: lb://supplier-service
+          predicates:
+            - Path=/matchxapp/api/suppliers/**
+          filters:
+            - StripPrefix=2
+        - id: order
+          uri: lb://order-service
+          predicates:
+            - Path=/matchxapp/api/orders/**
+          filters:
+            - StripPrefix=2
+
+# Logging
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web: DEBUG
+
+# Actuator Endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
