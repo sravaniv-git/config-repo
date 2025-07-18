@@ -1,13 +1,13 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/supplier-service-db
+    url: jdbc:postgresql://localhost:5432/product-service-db
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate.ddl-auto: update
 server:
-  port: 9095
+  port: 9094
 logging:
   level:
     root: INFO
