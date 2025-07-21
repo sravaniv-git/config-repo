@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/order-service-db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate.ddl-auto: update
+server:
+  port: 9097
+logging:
+  level:
+    root: INFO
+    com.capstone.matchxapp: DEBUG
+  file.name: application.log
