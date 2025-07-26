@@ -31,6 +31,12 @@ spring:
             - Path=/matchxapp/api/orders/**
           filters:
             - StripPrefix=2
+        - id: user
+          uri: lb://auth-service
+          predicates:
+            - Path=/matchxapp/api/users/**
+          filters:
+            - StripPrefix=2
 
 # Logging
 logging:
