@@ -37,6 +37,18 @@ spring:
             - Path=/matchxapp/api/users/**
           filters:
             - StripPrefix=2
+        - id: registry
+          uri: lb://registry-service
+          predicates:
+            - Path=/matchxapp/api/registry/**
+          filters:
+            - StripPrefix=2
+        - id: admin
+          uri: lb://admin-service
+          predicates:
+            - Path=/matchxapp/api/admin/**
+          filters:
+            - StripPrefix=2
 
 # Logging
 logging:
