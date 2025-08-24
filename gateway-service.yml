@@ -49,6 +49,10 @@ spring:
             - Path=/matchxapp/api/admin/**
           filters:
             - StripPrefix=2
+        - id: websocket
+          uri: ws://notification-service
+          predicates:
+            - Path=/ws/**
 
 # Logging
 logging:
