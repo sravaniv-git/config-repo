@@ -50,9 +50,11 @@ spring:
           filters:
             - StripPrefix=2
         - id: websocket
-          uri: lb:ws://notification-service
+          uri: lb://notification-service
           predicates:
             - Path=/ws/**
+            - Header=Connection, Upgrade
+            - Header=Upgrade, websocket
 
 # Logging
 logging:
